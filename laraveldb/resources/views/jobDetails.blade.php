@@ -3,6 +3,19 @@
     @section('title', 'Accueil')
     
     @section('content')
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
     <div class="container-xxl bg-white p-0">
        
 
@@ -78,21 +91,43 @@
                                 <div class="row g-3">
                                     <div class="col-12 col-sm-6">
                                         <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
+                                        @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                     </div>
+                                    
                                     <div class="col-12 col-sm-6">
                                         <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
+                                        @error('email')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                     </div>
+                                    
                                     <div class="col-12 col-sm-6">
                                         <input type="text" name="porfolio" id="porfolio" class="form-control" placeholder="Portfolio Website">
+                                        @error('porfolio')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                     </div>
+                                   
+                                  
                                     <div class="col-12 col-sm-6">
                                         <input type="file" name="document" id="document" class="form-control bg-white">
+                                        @error('document')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                     </div>
+                                    
                                     <div class="col-12">
                                         <textarea class="form-control" name="coverletter" id="coverletter" rows="5" placeholder="Coverletter"></textarea>
+                                        @error('coverletter')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                     </div>
+                                    
                                     <div class="col-12">
                                         <button class="btn btn-success w-100" type="submit">Postuler</button>
+                                        
                                     </div>
                                 </div>
                             </form>

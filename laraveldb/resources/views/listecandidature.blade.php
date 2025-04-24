@@ -17,6 +17,7 @@
                                 <th>email</th>
                                 <th>Date: </th>
                                 <th>porfolio</th>
+                                <th>Details</th>
                                 
                             </tr>
                         </thead>
@@ -28,6 +29,7 @@
                                 <td>{{$post->email}}</td>
                                 <td>{{ $post->created_at }}</td>
                                 <td>{{ $post->porfolio}}</td>
+                                <td> <a class="btn btn-success" href="{{ route('Post', $post->id) }}">view</a></td>
                                
                             </tr>
                             @endforeach

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unique('email');
+            $table->string('email')->unique();
             $table->string('porfolio');
             $table->string('document');
             $table->text('coverletter');

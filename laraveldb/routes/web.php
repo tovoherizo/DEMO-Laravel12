@@ -18,6 +18,9 @@ use App\Http\Controllers\PostController;
 
 
 
+
+
+
 Route::resource('jobs', JobController::class);
 Route::get('/', function (
     
@@ -44,6 +47,9 @@ Route::get('/testimonial', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+Route::get('/candidature', function () {
+    return view('candidature');
+})->name('candidature');
 Route::fallback(function () {
     return response()->view('404', [], 404);
 });
@@ -77,9 +83,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/ajoutoffre' ,[JobController::class,'store'])->name('jobs.store') ;
 
 });
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
-Route::get('/listecandidature',[PostController::class, 'show'])->name('Post.view');
+// Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+Route::get('/listecandidature',[PostController::class, 'index'])->name('Post.view');
+Route::get('/candidature/details/{id}',[PostController::class,'show'])->name('Post');
 Route::post('/jobdetail/{id}',[PostController::class,  'store'])->name('Post.store');
+
+
 
 
 

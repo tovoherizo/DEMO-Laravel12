@@ -21,6 +21,8 @@
         "@vitejs/plugin-react": "^4.3.4",
         "bootstrap": "^5.3.3",
         "jquery": "^3.7.1",
-        "owl.carousel": "^2.3.4"
+        "laravel-echo": "^2.0.2",
+        "owl.carousel": "^2.3.4",
+        "pusher-js": "^8.4.0"
     }
 }
